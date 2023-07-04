@@ -17,6 +17,7 @@ If you have any questions, checkout my github [README.md](https://github.com/mvs
 email: s-ma@coloplnext.co.jp
 """
 
+
 class Summarizer:
     def __init__(self, chain_type: str, chunk_size: int, chunk_overlap: int, temperature: float):
         self.chain_type = chain_type
@@ -57,15 +58,15 @@ def main():
 
     llm_name = st.sidebar.selectbox("LLM", ["GPT4", "ChatGPT"])
     if llm_name == "GPT4":
-        llm = ChatOpenAI(model_name="gpt-4", temperature=0.0)
+        llm = ChatOpenAI(model_name="gpt-4", temperature=0.0, openai_api_key=openai_api_key)
     elif llm_name == "GPT-3.5-turbo":
-        llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.0)
+        llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.0, openai_api_key=openai_api_key)
     else:
         st.write(f"Model {llm_name} is not supported yet!")
         return
 
     chain_type = st.sidebar.selectbox("Chain Type", ["map_reduce", "stuff", "refine"])
-    chunk_size = st.sidebar.slider("Chunk Size", min_value=500, max_value=5000, step=100, value=1000)
+    chunk_size = st.sidebar.slider("Chunk Size", min_value=500, max_value=5000, step=100, value=1500)
     chunk_overlap = st.sidebar.slider("Chunk Overlap", min_value=50, max_value=500, step=50, value=100)
 
     summarizer = Summarizer(chain_type, chunk_size, chunk_overlap, 0.0)
