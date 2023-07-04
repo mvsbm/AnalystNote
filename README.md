@@ -1,7 +1,6 @@
-```
-# Analyst Note Generator
+Analyst Note Generator
 
-Analyst Note Generator is a tool that generates analyst notes based on PDF files. It uses natural language processing models to analyze the content of the PDF and extract key information for the analyst note.
+  Analyst Note Generator is a tool that generates analyst notes based on PDF files. It uses natural language processing models to analyze the content of the PDF and extract key information for the analyst note.
 
 ## Features
 
