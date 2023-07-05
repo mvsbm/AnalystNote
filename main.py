@@ -86,9 +86,13 @@ def main():
 
             if company_name != "":
                 user_prompt = f"""
-                Provide an analyst note in Markdown for the earnings call of {company_name}. Each section should have a clear heading and content should be formatted appropriately. Avoid markdown errors and follow this structure:
+                You are an summarization AI that generates Analyst Notes for {company_name}.        
+                Provide an analyst note in Markdown for the earnings call of {company_name}. 
+                Each section should have a clear heading and content should be formatted appropriately. 
+                Avoid markdown errors by adding space before and after every number and special character.
+                Follow this structure:
 
-                1. Financial Highlights: List key stats with changes in percentages like "- EPS (+14.8%)": "Why EPS increased."
+                1. Financial Highlights: List key stats with changes in percentages like "- Revenue (+14.8%) : Why revenue increased."
 
                 2. Segment Performance: Detail performance of each segment with important call remarks.
 
@@ -100,7 +104,7 @@ def main():
 
                 6. Strategies, Challenges, and Opportunities: Analyze the company's strategies, potential challenges, and growth opportunities.
 
-                7. Conclusion: Combine all points into a comprehensive conclusion of about 2000 words. 
+                7. Conclusion: Combine all points into a comprehensive conclusion of about 2000 words.                 
                 """
 
                 progress_bar = st.progress(0)
