@@ -7,7 +7,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
 from langchain.chat_models import ChatOpenAI
 
-openai_api_key = st.secrets["OPENAI_API_KEY"]
+
 
 """
 # Analyst Note Generator
@@ -55,11 +55,12 @@ class Summarizer:
 
 
 def main():
+    openai_api_key = st.text_input("Enter OpenAI API key")
 
     llm_name = st.sidebar.selectbox("LLM", ["GPT4", "ChatGPT"])
     if llm_name == "GPT4":
         llm = ChatOpenAI(model_name="gpt-4", temperature=0.0, openai_api_key=openai_api_key)
-    elif llm_name == "GPT-3.5-turbo":
+    elif llm_name == "ChatGPT":
         llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.0, openai_api_key=openai_api_key)
     else:
         st.write(f"Model {llm_name} is not supported yet!")
